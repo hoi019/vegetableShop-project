@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { imgHeader } from "../../../public";
 import Navbar from "./Navbar/navbar";
 import './header.css'
+import Link from "next/link";
 
 const ShowDropItem = ({className, arr} : {className: string, arr: string[]}) => {
    return (
@@ -116,12 +117,14 @@ const Header = () => {
       <header className="w-full">
          <div className="flex py-7">
             <div className="flex justify-start pl-5 basis-2/12">
-               <Image className="cursor-pointer"
-                  src={imgHeader.logo}
-                  width={180}
-                  height={55}
-                  alt="logo"
-               />
+               <Link href={'/'}>
+                  <Image className="cursor-pointer"
+                     src={imgHeader.logo}
+                     width={180}
+                     height={55}
+                     alt="logo"
+                  />
+               </Link>
             </div>
             <div className="header__search-bg flex basis-5/12 items-center border rounded-md">
                <div className="header__all-cate relative flex justify-center basis-3/12 cursor-pointer h-full items-center"
@@ -210,7 +213,6 @@ const Header = () => {
                ))}
             </div>
          </div>
-
          <Navbar />
       </header>
    );
